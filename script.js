@@ -82,17 +82,10 @@ submitBtn.addEventListener('click',() =>{
   voiceSec.disabled = false;
   voiceSec.remove(0);
 
-  /*let voicesList = speechSyn.getVoices();
-
-  voicesList.map((v) => {
-    let option = document.createElement('option');
-    option.text = v.name;
-    voiceSec.add(option);
-  })*/
-
   speak1 = new SpeechSynthesisUtterance(document.getElementById('text-top').value);
   speak2 = new SpeechSynthesisUtterance(document.getElementById('text-bottom').value);
 
+  //Adapted from Mozilla
   let voices = speechSyn.getVoices();
 
   for(var i = 0; i < voices.length ; i++) {
@@ -137,6 +130,7 @@ const readBtn = btn[2];
 readBtn.addEventListener('click', () => { 
   let voices = speechSyn.getVoices(); 
   
+  //Adapted from Mozzila
   var selectedOption = voiceSec.selectedOptions[0].getAttribute('data-name');
     for(var i = 0; i < voices.length ; i++) {
       if(voices[i].name === selectedOption) {
